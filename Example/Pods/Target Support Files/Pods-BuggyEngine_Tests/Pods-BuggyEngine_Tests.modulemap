@@ -1,0 +1,6 @@
+framework module Pods_BuggyEngine_Tests {
+  umbrella header "Pods-BuggyEngine_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

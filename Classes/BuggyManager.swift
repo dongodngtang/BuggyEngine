@@ -23,7 +23,7 @@ class BuggyManager: NSObject {
     fileprivate var getBleData:[UInt8] = []
     fileprivate var getData:[UInt8] = []
     var communucationType:CommunucationType = .control
-    
+    var delegate:BuggyManagerDelegate?
     
     static private var instance : BuggyManager {
         return sharedInstance
@@ -60,7 +60,7 @@ class BuggyManager: NSObject {
     func startScan() ->Promise<String>{
         manager.delegate = self
         manager.startScanPeripheral()
-        timeOutTask = delay(10){self.device.reject(BuggyError(code:.timeOut))}
+        timeOutTask = delay(3){self.device.reject(BuggyError(code:.timeOut))}
         return Promise{seal in seal.fulfill("OK")}
     }
     
@@ -104,19 +104,19 @@ class BuggyManager: NSObject {
     func parseReceived(inputData:[UInt8]){
         switch communucationType {
         case .control:
-            self.controlParseReveived(inputData:inputData)
+            self.controlParseReceived(inputData:inputData)
         case .upload:
-            self.uploadParseReveived(inputData:inputData)
+            self.uploadParseReceived(inputData:inputData)
         }
     }
     
-    func controlParseReveived(inputData:[UInt8]){
-        //  delegate?.firmataReceviceData?(inputData: inputData)
+    func controlParseReceived(inputData:[UInt8]){
+        delegate?.firmataReceviceData?(inputData: inputData)
         response.fulfill(inputData);
         (getBuggyResponse,response) = Promise<[UInt8]>.pending()
     }
     
-    func uploadParseReveived(inputData:[UInt8]){
+    func uploadParseReceived(inputData:[UInt8]){
         for byte in inputData {
             if(stkInSync){
                 if(byte == STK_OK){
@@ -202,19 +202,17 @@ extension BuggyManager{
     }
     
     func setUploadBaudrate() -> Promise<String>  {
-        (getBuggyResponse,response) = Promise<[UInt8]>.pending()
         if let connectionBau = connectionBaudrate {
             managerWriteValue(connectionBau, msg:Baud115200)
         }
-        return after(seconds:0.020).then{return Promise{seal in seal.fulfill("OK")}}
+        return after(seconds:0.20).then{return Promise{seal in seal.fulfill("OK")}}
     }
     
     func  setCommunicatorBaudrate() -> Promise<String>  {
-        (getBuggyResponse,response) = Promise<[UInt8]>.pending()
         if let connectionBau = connectionBaudrate {
             managerWriteValue(connectionBau, msg: Baud57600)
         }
-        return after(seconds:0.020).then{return Promise{seal in seal.fulfill("OK")}}
+        return after(seconds:0.20).then{return Promise{seal in seal.fulfill("OK")}}
     }
     
     func getSync()->Promise<[UInt8]> {
@@ -246,7 +244,7 @@ extension BuggyManager{
         if let connectReset = connectionReset {
             managerWriteValue(connectReset, msg: resetCmd);
         }
-        return after(seconds:0.030).then{return Promise{seal in seal.fulfill("OK")}}
+        return after(seconds:0.30).then{return Promise{seal in seal.fulfill("OK")}}
     }
     
     func enterProgramming ()->Promise<[UInt8]>{
@@ -340,26 +338,4 @@ extension BuggyManager{
         timeOutTask = delay(2){self.response.reject(BuggyError(code:.timeOut))}
         return getBuggyResponse;
     }
-    
-    
-}
-
-
-extension BuggyManager{
-    
-    func promiseFulfillWithDelay(_ delay:Double,name:String) -> Promise<String> {
-        return Promise{seal in
-            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + delay) {
-                seal.fulfill(name)
-        }}
-    }
-    
-    func promiseRejectWithDelay(_ delay:Double,code:Int)-> Promise<String> {
-        return Promise {seal in
-            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + delay) {
-                seal.reject(BuggyError(code:.timeOut))
-            }
-        }
-    }
-    
 }

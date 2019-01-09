@@ -9,7 +9,6 @@
 @objc public protocol BuggyManagerDelegate : NSObjectProtocol {
     
     // 处理接收正常
-    @objc optional func parseReceviceData(inputData:[UInt8])
     @objc optional func firmataReceviceData(inputData:[UInt8])
     @objc optional func hexUploadProgess(progess:Int)
     @objc optional func deviceBetteryLevel(data:Data)

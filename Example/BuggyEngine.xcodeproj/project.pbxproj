@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		239145AA95F63429D2D1DD1C /* Pods_BuggyEngine_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D480034FC69324C9EC1CF1 /* Pods_BuggyEngine_Example.framework */; };
 		543771A6F7E1A2D2FBA76AC9 /* Pods_BuggyEngine_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F5DF7CE12D97BE3C0C6C5D /* Pods_BuggyEngine_Tests.framework */; };
+		581F697621E5BEC700DBA269 /* CommunicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F697521E5BEC700DBA269 /* CommunicatorViewController.swift */; };
+		581F697821E5CC2500DBA269 /* firmataCorePlusIBB.bin in Resources */ = {isa = PBXBuildFile; fileRef = 581F697721E5CC2500DBA269 /* firmataCorePlusIBB.bin */; };
+		581F697E21E5D96800DBA269 /* IBB_Basis.bin in Resources */ = {isa = PBXBuildFile; fileRef = 581F697D21E5D96800DBA269 /* IBB_Basis.bin */; };
+		581F699521E5FD4600DBA269 /* gui.js in Resources */ = {isa = PBXBuildFile; fileRef = 581F699221E5FD4600DBA269 /* gui.js */; };
+		581F699621E5FD4600DBA269 /* lib.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 581F699321E5FD4600DBA269 /* lib.min.js */; };
+		581F699721E5FD4600DBA269 /* firmata.html in Resources */ = {isa = PBXBuildFile; fileRef = 581F699421E5FD4600DBA269 /* firmata.html */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -28,9 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		019AB36960E2963B8D819761 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		019AB36960E2963B8D819761 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		24F5DF7CE12D97BE3C0C6C5D /* Pods_BuggyEngine_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuggyEngine_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		435063510208CC2AA576BD3D /* Pods-BuggyEngine_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuggyEngine_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuggyEngine_Example/Pods-BuggyEngine_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		581F697521E5BEC700DBA269 /* CommunicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicatorViewController.swift; sourceTree = "<group>"; };
+		581F697721E5CC2500DBA269 /* firmataCorePlusIBB.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = firmataCorePlusIBB.bin; sourceTree = "<group>"; };
+		581F697D21E5D96800DBA269 /* IBB_Basis.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = IBB_Basis.bin; sourceTree = "<group>"; };
+		581F699221E5FD4600DBA269 /* gui.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gui.js; sourceTree = "<group>"; };
+		581F699321E5FD4600DBA269 /* lib.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lib.min.js; sourceTree = "<group>"; };
+		581F699421E5FD4600DBA269 /* firmata.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = firmata.html; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* BuggyEngine_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuggyEngine_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,8 +55,8 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		86309D1204054B0515ED13B8 /* Pods-BuggyEngine_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuggyEngine_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuggyEngine_Example/Pods-BuggyEngine_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B67E048E084990251257AD00 /* Pods-BuggyEngine_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuggyEngine_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuggyEngine_Tests/Pods-BuggyEngine_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C0640B9D7425B5DF954CD946 /* BuggyEngine.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = BuggyEngine.podspec; path = ../BuggyEngine.podspec; sourceTree = "<group>"; };
-		C0D4A5B92456AE2144866B9D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		C0640B9D7425B5DF954CD946 /* BuggyEngine.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BuggyEngine.podspec; path = ../BuggyEngine.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C0D4A5B92456AE2144866B9D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C1D480034FC69324C9EC1CF1 /* Pods_BuggyEngine_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuggyEngine_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28B91905D22CC5BAB260038 /* Pods-BuggyEngine_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuggyEngine_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuggyEngine_Tests/Pods-BuggyEngine_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,10 +116,16 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				581F697721E5CC2500DBA269 /* firmataCorePlusIBB.bin */,
+				581F697D21E5D96800DBA269 /* IBB_Basis.bin */,
+				581F699421E5FD4600DBA269 /* firmata.html */,
+				581F699221E5FD4600DBA269 /* gui.js */,
+				581F699321E5FD4600DBA269 /* lib.min.js */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				581F697521E5BEC700DBA269 /* CommunicatorViewController.swift */,
 			);
 			name = "Example for BuggyEngine";
 			path = BuggyEngine;
@@ -213,10 +231,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = F29MNDM4PA;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = F29MNDM4PA;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -246,6 +266,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				581F699621E5FD4600DBA269 /* lib.min.js in Resources */,
+				581F699521E5FD4600DBA269 /* gui.js in Resources */,
+				581F697821E5CC2500DBA269 /* firmataCorePlusIBB.bin in Resources */,
+				581F699721E5FD4600DBA269 /* firmata.html in Resources */,
+				581F697E21E5D96800DBA269 /* IBB_Basis.bin in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -316,12 +341,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BuggyEngine_Example/Pods-BuggyEngine_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BuggyEngine/BuggyEngine.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/WKWebViewJavascriptBridge/WKWebViewJavascriptBridge.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BuggyEngine.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WKWebViewJavascriptBridge.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -359,6 +388,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				581F697621E5BEC700DBA269 /* CommunicatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +534,7 @@
 			baseConfigurationReference = 435063510208CC2AA576BD3D /* Pods-BuggyEngine_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F29MNDM4PA;
 				INFOPLIST_FILE = BuggyEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -519,6 +550,7 @@
 			baseConfigurationReference = 86309D1204054B0515ED13B8 /* Pods-BuggyEngine_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F29MNDM4PA;
 				INFOPLIST_FILE = BuggyEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -533,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D28B91905D22CC5BAB260038 /* Pods-BuggyEngine_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = F29MNDM4PA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -555,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B67E048E084990251257AD00 /* Pods-BuggyEngine_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = F29MNDM4PA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

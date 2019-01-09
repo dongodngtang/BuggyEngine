@@ -13,7 +13,6 @@
     @objc optional func deviceDisconnected()
     @objc optional func deviceBreak()
     @objc optional func deviceExceptionBreak()
-    @objc optional func buggyEngineStatus(status:ProgressStatus)
     @objc optional func powerWarning()
     
 }

@@ -1,0 +1,6 @@
+framework module BuggyEngine {
+  umbrella header "BuggyEngine-umbrella.h"
+
+  export *
+  module * { export * }
+}

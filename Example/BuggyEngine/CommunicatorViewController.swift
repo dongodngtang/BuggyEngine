@@ -7,24 +7,15 @@
 //
 
 import UIKit
+import BuggyEngine
 
 class CommunicatorViewController: UIViewController {
-
+    
+    var buggyEngine:BuggyEngine?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        buggyEngine = BuggyEngine()
+        buggyEngine?.initBuggy()
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
