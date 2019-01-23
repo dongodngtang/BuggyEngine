@@ -324,7 +324,7 @@ extension BuggyManager{
     }
     
     func updateProgess(pageaddr:Int,hexData:Data){
-        let progess = Int((Float(pageaddr) / Float(hexData.count))*100)
+        // let progess = Int((Float(pageaddr) / Float(hexData.count))*100)
        
     }
     
