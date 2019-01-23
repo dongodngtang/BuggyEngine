@@ -33,19 +33,19 @@
 		4C022C88B9E8D527B1426B5281756EDE /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 661E53566532BFB1AEB7FAA1723A3450 /* UIImage+Compare.m */; };
 		4CF5865BAF828AB9A7C56F3A1B1C856F /* FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B83E86A9EE6E1549550FB96E554888A1 /* FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D600539FC2E29EA7E28A2DA8A8B328C /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = B5A8C45EC057BEB207F2EEB6F5A6A82C /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		581F69C121E610F800DBA269 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69B421E610F800DBA269 /* Constants.swift */; };
-		581F69C221E610F800DBA269 /* BuggyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69B521E610F800DBA269 /* BuggyManager.swift */; };
-		581F69C321E610F800DBA269 /* CBService+LightBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69B621E610F800DBA269 /* CBService+LightBlue.swift */; };
-		581F69C421E610F800DBA269 /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69B721E610F800DBA269 /* Task+Extension.swift */; };
-		581F69C521E610F800DBA269 /* CBCharacteristic+LightBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69B821E610F800DBA269 /* CBCharacteristic+LightBlue.swift */; };
-		581F69C621E610F800DBA269 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69B921E610F800DBA269 /* BluetoothManager.swift */; };
-		581F69C721E610F800DBA269 /* BuggyEngineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69BA21E610F800DBA269 /* BuggyEngineDelegate.swift */; };
-		581F69C821E610F800DBA269 /* CBAdvertisementData+LightBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69BB21E610F800DBA269 /* CBAdvertisementData+LightBlue.swift */; };
-		581F69C921E610F800DBA269 /* CBUUID+LightBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69BC21E610F800DBA269 /* CBUUID+LightBlue.swift */; };
-		581F69CA21E610F800DBA269 /* BuggyManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69BD21E610F800DBA269 /* BuggyManagerDelegate.swift */; };
-		581F69CB21E610F800DBA269 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69BE21E610F800DBA269 /* Data+Extension.swift */; };
-		581F69CC21E610F800DBA269 /* BluetoothDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69BF21E610F800DBA269 /* BluetoothDelegate.swift */; };
-		581F69CD21E610F800DBA269 /* BuggyEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69C021E610F800DBA269 /* BuggyEngine.swift */; };
+		581F69DB21E71F3300DBA269 /* CBAdvertisementData+LightBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69CE21E71F3100DBA269 /* CBAdvertisementData+LightBlue.swift */; };
+		581F69DC21E71F3300DBA269 /* CBCharacteristic+LightBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69CF21E71F3100DBA269 /* CBCharacteristic+LightBlue.swift */; };
+		581F69DD21E71F3300DBA269 /* BuggyManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D021E71F3100DBA269 /* BuggyManagerDelegate.swift */; };
+		581F69DE21E71F3300DBA269 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D121E71F3100DBA269 /* BluetoothManager.swift */; };
+		581F69DF21E71F3300DBA269 /* CBService+LightBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D221E71F3100DBA269 /* CBService+LightBlue.swift */; };
+		581F69E021E71F3300DBA269 /* CBUUID+LightBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D321E71F3100DBA269 /* CBUUID+LightBlue.swift */; };
+		581F69E121E71F3300DBA269 /* BuggyEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D421E71F3200DBA269 /* BuggyEngine.swift */; };
+		581F69E221E71F3300DBA269 /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D521E71F3200DBA269 /* Task+Extension.swift */; };
+		581F69E321E71F3300DBA269 /* BuggyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D621E71F3200DBA269 /* BuggyManager.swift */; };
+		581F69E421E71F3300DBA269 /* BuggyEngineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D721E71F3200DBA269 /* BuggyEngineDelegate.swift */; };
+		581F69E521E71F3300DBA269 /* BluetoothDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D821E71F3200DBA269 /* BluetoothDelegate.swift */; };
+		581F69E621E71F3300DBA269 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69D921E71F3200DBA269 /* Data+Extension.swift */; };
+		581F69E721E71F3300DBA269 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F69DA21E71F3200DBA269 /* Constants.swift */; };
 		58627BDB02629A1A3F2DCA4BE2C4C9A5 /* CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A561FAD59237E88D712CD1673B61B17 /* CustomStringConvertible.swift */; };
 		59FD5FAEFCF13CD39358A6F36C50BED8 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F1C784D95946CEFCF0A92002B5848C /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B22F5D44D458E8727F1402234B691BD /* when.m in Sources */ = {isa = PBXBuildFile; fileRef = 127FF030F514A1D95EADACAF7B7315BE /* when.m */; };
@@ -210,19 +210,19 @@
 		4DF703BE7573BBC52C77F65EC99D4629 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F032BFE2A0029746854ED8F67C868E4 /* FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
 		5157077723BE4FBB3B48B066CA9ABAB3 /* PromiseKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PromiseKit.xcconfig; sourceTree = "<group>"; };
-		581F69B421E610F800DBA269 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		581F69B521E610F800DBA269 /* BuggyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuggyManager.swift; sourceTree = "<group>"; };
-		581F69B621E610F800DBA269 /* CBService+LightBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBService+LightBlue.swift"; sourceTree = "<group>"; };
-		581F69B721E610F800DBA269 /* Task+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
-		581F69B821E610F800DBA269 /* CBCharacteristic+LightBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBCharacteristic+LightBlue.swift"; sourceTree = "<group>"; };
-		581F69B921E610F800DBA269 /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
-		581F69BA21E610F800DBA269 /* BuggyEngineDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuggyEngineDelegate.swift; sourceTree = "<group>"; };
-		581F69BB21E610F800DBA269 /* CBAdvertisementData+LightBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBAdvertisementData+LightBlue.swift"; sourceTree = "<group>"; };
-		581F69BC21E610F800DBA269 /* CBUUID+LightBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBUUID+LightBlue.swift"; sourceTree = "<group>"; };
-		581F69BD21E610F800DBA269 /* BuggyManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuggyManagerDelegate.swift; sourceTree = "<group>"; };
-		581F69BE21E610F800DBA269 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
-		581F69BF21E610F800DBA269 /* BluetoothDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDelegate.swift; sourceTree = "<group>"; };
-		581F69C021E610F800DBA269 /* BuggyEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuggyEngine.swift; sourceTree = "<group>"; };
+		581F69CE21E71F3100DBA269 /* CBAdvertisementData+LightBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBAdvertisementData+LightBlue.swift"; sourceTree = "<group>"; };
+		581F69CF21E71F3100DBA269 /* CBCharacteristic+LightBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBCharacteristic+LightBlue.swift"; sourceTree = "<group>"; };
+		581F69D021E71F3100DBA269 /* BuggyManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuggyManagerDelegate.swift; sourceTree = "<group>"; };
+		581F69D121E71F3100DBA269 /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		581F69D221E71F3100DBA269 /* CBService+LightBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBService+LightBlue.swift"; sourceTree = "<group>"; };
+		581F69D321E71F3100DBA269 /* CBUUID+LightBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBUUID+LightBlue.swift"; sourceTree = "<group>"; };
+		581F69D421E71F3200DBA269 /* BuggyEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuggyEngine.swift; sourceTree = "<group>"; };
+		581F69D521E71F3200DBA269 /* Task+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
+		581F69D621E71F3200DBA269 /* BuggyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuggyManager.swift; sourceTree = "<group>"; };
+		581F69D721E71F3200DBA269 /* BuggyEngineDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuggyEngineDelegate.swift; sourceTree = "<group>"; };
+		581F69D821E71F3200DBA269 /* BluetoothDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDelegate.swift; sourceTree = "<group>"; };
+		581F69D921E71F3200DBA269 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		581F69DA21E71F3200DBA269 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		58DB38C41459D00DE3642F3BF18B2FBC /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
 		5E06377DC65FC5160FFBA55457DA23A0 /* Pods-BuggyEngine_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BuggyEngine_Example.modulemap"; sourceTree = "<group>"; };
 		5F1DB77CD92746F5AAF29F21C0F05484 /* after.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = after.m; path = Sources/after.m; sourceTree = "<group>"; };
@@ -461,19 +461,19 @@
 		581F69B321E610F800DBA269 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				581F69B421E610F800DBA269 /* Constants.swift */,
-				581F69B521E610F800DBA269 /* BuggyManager.swift */,
-				581F69B621E610F800DBA269 /* CBService+LightBlue.swift */,
-				581F69B721E610F800DBA269 /* Task+Extension.swift */,
-				581F69B821E610F800DBA269 /* CBCharacteristic+LightBlue.swift */,
-				581F69B921E610F800DBA269 /* BluetoothManager.swift */,
-				581F69BA21E610F800DBA269 /* BuggyEngineDelegate.swift */,
-				581F69BB21E610F800DBA269 /* CBAdvertisementData+LightBlue.swift */,
-				581F69BC21E610F800DBA269 /* CBUUID+LightBlue.swift */,
-				581F69BD21E610F800DBA269 /* BuggyManagerDelegate.swift */,
-				581F69BE21E610F800DBA269 /* Data+Extension.swift */,
-				581F69BF21E610F800DBA269 /* BluetoothDelegate.swift */,
-				581F69C021E610F800DBA269 /* BuggyEngine.swift */,
+				581F69D821E71F3200DBA269 /* BluetoothDelegate.swift */,
+				581F69D121E71F3100DBA269 /* BluetoothManager.swift */,
+				581F69D421E71F3200DBA269 /* BuggyEngine.swift */,
+				581F69D721E71F3200DBA269 /* BuggyEngineDelegate.swift */,
+				581F69D621E71F3200DBA269 /* BuggyManager.swift */,
+				581F69D021E71F3100DBA269 /* BuggyManagerDelegate.swift */,
+				581F69CE21E71F3100DBA269 /* CBAdvertisementData+LightBlue.swift */,
+				581F69CF21E71F3100DBA269 /* CBCharacteristic+LightBlue.swift */,
+				581F69D221E71F3100DBA269 /* CBService+LightBlue.swift */,
+				581F69D321E71F3100DBA269 /* CBUUID+LightBlue.swift */,
+				581F69DA21E71F3200DBA269 /* Constants.swift */,
+				581F69D921E71F3200DBA269 /* Data+Extension.swift */,
+				581F69D521E71F3200DBA269 /* Task+Extension.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -892,6 +892,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					37D7FD9C0DED714F3C82EE706ADAF0E6 = {
+						LastSwiftMigration = 1010;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1000,20 +1005,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				581F69C821E610F800DBA269 /* CBAdvertisementData+LightBlue.swift in Sources */,
+				581F69E621E71F3300DBA269 /* Data+Extension.swift in Sources */,
+				581F69E121E71F3300DBA269 /* BuggyEngine.swift in Sources */,
+				581F69E421E71F3300DBA269 /* BuggyEngineDelegate.swift in Sources */,
+				581F69E221E71F3300DBA269 /* Task+Extension.swift in Sources */,
+				581F69E021E71F3300DBA269 /* CBUUID+LightBlue.swift in Sources */,
 				A87F784C49454C3FBA678ED0B98221C1 /* BuggyEngine-dummy.m in Sources */,
-				581F69C321E610F800DBA269 /* CBService+LightBlue.swift in Sources */,
-				581F69C521E610F800DBA269 /* CBCharacteristic+LightBlue.swift in Sources */,
-				581F69C721E610F800DBA269 /* BuggyEngineDelegate.swift in Sources */,
-				581F69CC21E610F800DBA269 /* BluetoothDelegate.swift in Sources */,
-				581F69CB21E610F800DBA269 /* Data+Extension.swift in Sources */,
-				581F69C621E610F800DBA269 /* BluetoothManager.swift in Sources */,
-				581F69C921E610F800DBA269 /* CBUUID+LightBlue.swift in Sources */,
-				581F69CA21E610F800DBA269 /* BuggyManagerDelegate.swift in Sources */,
-				581F69C121E610F800DBA269 /* Constants.swift in Sources */,
-				581F69C221E610F800DBA269 /* BuggyManager.swift in Sources */,
-				581F69CD21E610F800DBA269 /* BuggyEngine.swift in Sources */,
-				581F69C421E610F800DBA269 /* Task+Extension.swift in Sources */,
+				581F69DD21E71F3300DBA269 /* BuggyManagerDelegate.swift in Sources */,
+				581F69DB21E71F3300DBA269 /* CBAdvertisementData+LightBlue.swift in Sources */,
+				581F69E521E71F3300DBA269 /* BluetoothDelegate.swift in Sources */,
+				581F69DF21E71F3300DBA269 /* CBService+LightBlue.swift in Sources */,
+				581F69DC21E71F3300DBA269 /* CBCharacteristic+LightBlue.swift in Sources */,
+				581F69E721E71F3300DBA269 /* Constants.swift in Sources */,
+				581F69E321E71F3300DBA269 /* BuggyManager.swift in Sources */,
+				581F69DE21E71F3300DBA269 /* BluetoothManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,6 +1159,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F4BC56A9BAC9037632BA21045BE217E /* BuggyEngine.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1572,6 +1578,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F4BC56A9BAC9037632BA21045BE217E /* BuggyEngine.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1592,6 +1599,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

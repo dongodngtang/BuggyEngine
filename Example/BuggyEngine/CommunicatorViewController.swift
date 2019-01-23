@@ -16,6 +16,7 @@ class CommunicatorViewController: UIViewController {
         super.viewDidLoad()
         buggyEngine = BuggyEngine()
         buggyEngine?.initBuggy()
-        
     }
+    
+    
 }

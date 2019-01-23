@@ -13,7 +13,7 @@ public class BuggyEngine: NSObject {
     
     var manager = BuggyManager.getInstance()
     public var delegate:BuggyEngineDelegate?
-    fileprivate var bridge:WKWebViewJavascriptBridge?
+    public var bridge:WKWebViewJavascriptBridge?
     fileprivate var wkWebView =  WKWebView()
     public override init() {
         super.init()
@@ -26,12 +26,12 @@ public class BuggyEngine: NSObject {
                 return after(seconds:2)
             }.then{_ in
                 return self.connectBuggy()
-            }
+        }
     }
-
+    
     func connectBuggy()->Promise<String>{
-         bridge?.call(handlerName: "deviceConnect", data:nil, callback: nil)
-         return Promise{seal in seal.fulfill("OK")}
+        bridge?.call(handlerName: "deviceConnect", data:nil, callback: nil)
+        return Promise{seal in seal.fulfill("OK")}
     }
     
     func loadFirmataResource()->Promise<String>{
@@ -74,6 +74,11 @@ public class BuggyEngine: NSObject {
             print("scratch response","连接成功")
         }
         return Promise{seal in seal.fulfill("OK")}
+    }
+    
+    public func sendFirmataData(){
+        
+        
     }
     
     public func initCommunicator()->Promise<String>{
@@ -136,7 +141,9 @@ public class BuggyEngine: NSObject {
 extension BuggyEngine:BuggyManagerDelegate{
     
     public func firmataReceviceData(inputData: [UInt8]) {
+        delegate?.firmataReceviceData!(inputData:inputData)
         bridge?.call(handlerName: "handleNotification", data:["data":inputData], callback: nil)
     }
     
 }
+

@@ -13,7 +13,6 @@ class ViewController: CommunicatorViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
     }
 
 
