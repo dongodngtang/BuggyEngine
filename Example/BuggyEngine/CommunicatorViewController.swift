@@ -14,9 +14,6 @@ class CommunicatorViewController: UIViewController {
     var buggyEngine:BuggyEngine?
     override func viewDidLoad() {
         super.viewDidLoad()
-        buggyEngine = BuggyEngine()
-        buggyEngine?.initBuggy()
+        
     }
-    
-    
 }

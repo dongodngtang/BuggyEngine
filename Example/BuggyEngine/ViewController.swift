@@ -9,10 +9,16 @@
 import UIKit
 import PromiseKit
 import BuggyEngine
-class ViewController: CommunicatorViewController {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let buggyEngine = BuggyEngine()
+        buggyEngine.delegate = self
+        buggyEngine.initBuggy()
+        after(seconds: 3).done { _ in
+            buggyEngine.initConnect()
+        }
     }
 
 
@@ -22,4 +28,13 @@ class ViewController: CommunicatorViewController {
     }
 }
 
-
+extension ViewController:BuggyEngineDelegate{
+    
+    func buggyEngineState(state: BuggyState) {
+        print(state)
+    }
+    
+    func firmataReceviceData(inputData:[UInt8]){
+        
+    }
+}

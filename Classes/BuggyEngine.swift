@@ -9,6 +9,12 @@ import UIKit
 import PromiseKit
 import WebKit
 import WKWebViewJavascriptBridge
+@objc public enum BuggyState:Int {
+    case timeout
+    case connectsuccess
+    case disconnect
+}
+
 public class BuggyEngine: NSObject {
     
     var manager = BuggyManager.getInstance()
@@ -61,24 +67,20 @@ public class BuggyEngine: NSObject {
         }
         
         bridge?.register(handlerName: "connectTimeOut") { (paramters, callback) in
-            let path = Bundle.main.path(forResource:"firmataCorePlusIBB", ofType:"bin")
-            let data = NSData(contentsOfFile:path!)
-            _ = self.resetBuggyAndUpload(data:data!)
+            print("scratch response","连接超时")
+            self.delegate?.buggyEngineState?(state:.timeout)
         }
         
         bridge?.register(handlerName: "disconnect") { (paramters, callback) in
             print("scratch response","连接断开")
+            self.delegate?.buggyEngineState?(state:.disconnect)
         }
         
         bridge?.register(handlerName: "connectReady") { (paramters, callback) in
             print("scratch response","连接成功")
+            self.delegate?.buggyEngineState?(state:.connectsuccess)
         }
         return Promise{seal in seal.fulfill("OK")}
-    }
-    
-    public func sendFirmataData(){
-        
-        
     }
     
     public func initCommunicator()->Promise<String>{
@@ -137,13 +139,11 @@ public class BuggyEngine: NSObject {
     }
 }
 
-
 extension BuggyEngine:BuggyManagerDelegate{
     
     public func firmataReceviceData(inputData: [UInt8]) {
         delegate?.firmataReceviceData!(inputData:inputData)
         bridge?.call(handlerName: "handleNotification", data:["data":inputData], callback: nil)
     }
-    
 }
 
