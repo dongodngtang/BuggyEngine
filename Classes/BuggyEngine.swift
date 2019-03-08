@@ -23,6 +23,7 @@ public class BuggyEngine: NSObject {
     fileprivate var wkWebView =  WKWebView()
     public override init() {
         super.init()
+        wkWebView.navigationDelegate = self
     }
     
     public func initBuggy(){
@@ -143,3 +144,10 @@ extension BuggyEngine:BuggyManagerDelegate{
     }
 }
 
+
+extension BuggyEngine:WKNavigationDelegate{
+    
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("加载完成")
+    }
+}

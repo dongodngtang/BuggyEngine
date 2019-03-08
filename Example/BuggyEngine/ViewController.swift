@@ -13,10 +13,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.blue
         let buggyEngine = BuggyEngine()
         buggyEngine.delegate = self
         buggyEngine.initBuggy()
-        after(seconds: 3).done { _ in
+        after(seconds: 5).done { _ in
             buggyEngine.connectBuggy()
         }
     }
