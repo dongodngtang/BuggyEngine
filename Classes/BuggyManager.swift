@@ -210,7 +210,7 @@ extension BuggyManager{
     
     func  setCommunicatorBaudrate() -> Promise<String>  {
         if let connectionBau = connectionBaudrate {
-            managerWriteValue(connectionBau, msg: Baud57600)
+            managerWriteValue(connectionBau, msg: Baud115200)
         }
         return after(seconds:0.20).then{return Promise{seal in seal.fulfill("OK")}}
     }

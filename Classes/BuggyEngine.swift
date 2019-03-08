@@ -28,14 +28,10 @@ public class BuggyEngine: NSObject {
     public func initBuggy(){
         _ = registerWebViewBridge().then{_ in
             return self.loadFirmataResource()
-            }.then{_ in
-                return after(seconds:2)
-            }.then{_ in
-                return self.connectBuggy()
         }
     }
     
-    func connectBuggy()->Promise<String>{
+    public func connectBuggy()->Promise<String>{
         bridge?.call(handlerName: "deviceConnect", data:nil, callback: nil)
         return Promise{seal in seal.fulfill("OK")}
     }

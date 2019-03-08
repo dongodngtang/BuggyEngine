@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         buggyEngine.delegate = self
         buggyEngine.initBuggy()
         after(seconds: 3).done { _ in
-            buggyEngine.initConnect()
+            buggyEngine.connectBuggy()
         }
     }
 
