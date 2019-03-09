@@ -102,6 +102,7 @@ class BuggyManager: NSObject {
     }
     
     func parseReceived(inputData:[UInt8]){
+        print(inputData)
         switch communucationType {
         case .control:
             self.controlParseReceived(inputData:inputData)
@@ -184,6 +185,7 @@ extension BuggyManager:BluetoothDelegate{
     
     func didReadValueForCharacteristic(_ characteristic: CBCharacteristic) {
         let data = characteristic.value!
+        print("didReadValueForCharacteristic",data)
         cancel(timeOutTask);
         let array = data.withUnsafeBytes {
             [UInt8](UnsafeBufferPointer(start: $0, count: data.count))

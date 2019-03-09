@@ -20,10 +20,9 @@ public class BuggyEngine: NSObject {
     var manager = BuggyManager.getInstance()
     public var delegate:BuggyEngineDelegate?
     public var bridge:WKWebViewJavascriptBridge?
-    fileprivate var wkWebView =  WKWebView()
+    fileprivate var wkWebView =  WKWebView(frame:UIScreen.main.bounds)
     public override init() {
         super.init()
-        wkWebView.navigationDelegate = self
     }
     
     public func initBuggy(){
@@ -33,8 +32,9 @@ public class BuggyEngine: NSObject {
     }
     
     public func connectBuggy()->Promise<String>{
+        print("connectBuggy")
         bridge?.call(handlerName: "deviceConnect", data:nil, callback: nil)
-        return Promise{seal in seal.fulfill("OK")}
+        return after(seconds:20).then{return Promise{seal in seal.fulfill("OK")}}
     }
     
     func loadFirmataResource()->Promise<String>{
@@ -95,9 +95,12 @@ public class BuggyEngine: NSObject {
             return self.manager.startScan()
             }.then{_ in
                 return self.manager.connectDevice()
+            }.then{_ in
+                return self.resetBuggy()
+            }.then{_ in
+                return Promise{seal in seal.fulfill("OK")}
         }
     }
-    
     public func resetBuggyAndUpload(data:NSData)->Promise<String>{
         manager.communucationType = .upload
         return self.uploadHex(data:data as Data)
