@@ -1,5 +1,5 @@
 PODS:
-  - BuggyEngine (0.1.0):
+  - BuggyEngine (0.1.9):
     - PromiseKit (~> 6.0)
     - WKWebViewJavascriptBridge (~> 1.2.0)
   - FBSnapshotTestCase (2.1.4):
@@ -33,11 +33,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BuggyEngine: bd4a3b2c393823ebafe2a1f5b24c7abecff05bad
+  BuggyEngine: 2df3d871156945999baeacb9fae88f38a6cc5b9c
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
 PODFILE CHECKSUM: 0f259d8fab771d36104eddf66ac5a3dc6a3def20
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2

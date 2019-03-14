@@ -51,4 +51,11 @@ let serviceUUID = CBUUID(string:"FFF0")
 let betteryServiceUUID = CBUUID(string:"180F")
 let characteristicUUID = [CBUUID(string:"FFF6"),CBUUID(string:"FFF1"),CBUUID(string:"FFF2"),CBUUID(string:"2A19")]
 
+//js中的firmata调原生方法
+let FIRMATA_CONNECT = "bleConnect"
+let FIRMATA_SENDMEG = "sendMsgPromise"
+let FIRMATA_TIMEOUT = "connectTimeOut"
+let FIRMATA_DISCONNECT = "disconnect"
+let FIRMATA_CONNECTREADY = "connectReady"
+let FIRMATA_NOTIFICATION = "handleNotification"
 

@@ -11,7 +11,6 @@
 		543771A6F7E1A2D2FBA76AC9 /* Pods_BuggyEngine_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F5DF7CE12D97BE3C0C6C5D /* Pods_BuggyEngine_Tests.framework */; };
 		581F697621E5BEC700DBA269 /* CommunicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581F697521E5BEC700DBA269 /* CommunicatorViewController.swift */; };
 		581F697821E5CC2500DBA269 /* firmataCorePlusIBB.bin in Resources */ = {isa = PBXBuildFile; fileRef = 581F697721E5CC2500DBA269 /* firmataCorePlusIBB.bin */; };
-		581F697E21E5D96800DBA269 /* IBB_Basis.bin in Resources */ = {isa = PBXBuildFile; fileRef = 581F697D21E5D96800DBA269 /* IBB_Basis.bin */; };
 		581F699521E5FD4600DBA269 /* gui.js in Resources */ = {isa = PBXBuildFile; fileRef = 581F699221E5FD4600DBA269 /* gui.js */; };
 		581F699621E5FD4600DBA269 /* lib.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 581F699321E5FD4600DBA269 /* lib.min.js */; };
 		581F699721E5FD4600DBA269 /* firmata.html in Resources */ = {isa = PBXBuildFile; fileRef = 581F699421E5FD4600DBA269 /* firmata.html */; };
@@ -39,7 +38,6 @@
 		435063510208CC2AA576BD3D /* Pods-BuggyEngine_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuggyEngine_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuggyEngine_Example/Pods-BuggyEngine_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		581F697521E5BEC700DBA269 /* CommunicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicatorViewController.swift; sourceTree = "<group>"; };
 		581F697721E5CC2500DBA269 /* firmataCorePlusIBB.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = firmataCorePlusIBB.bin; sourceTree = "<group>"; };
-		581F697D21E5D96800DBA269 /* IBB_Basis.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = IBB_Basis.bin; sourceTree = "<group>"; };
 		581F699221E5FD4600DBA269 /* gui.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gui.js; sourceTree = "<group>"; };
 		581F699321E5FD4600DBA269 /* lib.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lib.min.js; sourceTree = "<group>"; };
 		581F699421E5FD4600DBA269 /* firmata.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = firmata.html; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				581F697721E5CC2500DBA269 /* firmataCorePlusIBB.bin */,
-				581F697D21E5D96800DBA269 /* IBB_Basis.bin */,
 				581F699421E5FD4600DBA269 /* firmata.html */,
 				581F699221E5FD4600DBA269 /* gui.js */,
 				581F699321E5FD4600DBA269 /* lib.min.js */,
@@ -270,7 +267,6 @@
 				581F699521E5FD4600DBA269 /* gui.js in Resources */,
 				581F697821E5CC2500DBA269 /* firmataCorePlusIBB.bin in Resources */,
 				581F699721E5FD4600DBA269 /* firmata.html in Resources */,
-				581F697E21E5D96800DBA269 /* IBB_Basis.bin in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -295,7 +291,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BuggyEngine_Tests/Pods-BuggyEngine_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BuggyEngine_Tests/Pods-BuggyEngine_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -306,7 +302,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BuggyEngine_Tests/Pods-BuggyEngine_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuggyEngine_Tests/Pods-BuggyEngine_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2BA4A20C8960BB4D87757938 /* [CP] Check Pods Manifest.lock */ = {
@@ -339,7 +335,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BuggyEngine_Example/Pods-BuggyEngine_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BuggyEngine_Example/Pods-BuggyEngine_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BuggyEngine/BuggyEngine.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/WKWebViewJavascriptBridge/WKWebViewJavascriptBridge.framework",
@@ -354,7 +350,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BuggyEngine_Example/Pods-BuggyEngine_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuggyEngine_Example/Pods-BuggyEngine_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD3C64CD0CD86AA4B746EF0E /* [CP] Check Pods Manifest.lock */ = {

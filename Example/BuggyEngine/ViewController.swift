@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         let buggyEngine = BuggyEngine()
         buggyEngine.delegate = self
         buggyEngine.initBuggy()
-        after(seconds: 5).done { _ in
+        after(seconds: 1).done { _ in
             buggyEngine.connectBuggy()
         }
     }
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
 extension ViewController:BuggyEngineDelegate{
     
     func buggyEngineState(state: BuggyState) {
-        print(state)
+        print("buggyEngineState",state == .connectTimeOut)
     }
     
     func firmataReceviceData(inputData:[UInt8]){

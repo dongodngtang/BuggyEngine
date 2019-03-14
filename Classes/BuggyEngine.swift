@@ -9,10 +9,16 @@ import UIKit
 import PromiseKit
 import WebKit
 import WKWebViewJavascriptBridge
+import CoreBluetooth
 @objc public enum BuggyState:Int {
-    case timeout
+    case firmataTimeOut
     case connectsuccess
     case disconnect
+    case connectTimeOut
+    case firmatasuccess
+    case firmatabreak
+    case powerOff
+    case powerOn
 }
 
 public class BuggyEngine: NSObject {
@@ -20,7 +26,9 @@ public class BuggyEngine: NSObject {
     var manager = BuggyManager.getInstance()
     public var delegate:BuggyEngineDelegate?
     public var bridge:WKWebViewJavascriptBridge?
-    fileprivate var wkWebView =  WKWebView(frame:UIScreen.main.bounds)
+    private var wkWebView =  WKWebView()
+    private var timeOutTask:Task?
+    private var presentPowerOFF:Bool = false
     public override init() {
         super.init()
     }
@@ -31,13 +39,14 @@ public class BuggyEngine: NSObject {
         }
     }
     
-    public func connectBuggy()->Promise<String>{
-        print("connectBuggy")
+    public func connectBuggy(){
         bridge?.call(handlerName: "deviceConnect", data:nil, callback: nil)
-        return after(seconds:20).then{return Promise{seal in seal.fulfill("OK")}}
+        timeOutTask = delay(10){self.stopScan()}
     }
     
     func loadFirmataResource()->Promise<String>{
+        let controller = UIViewController.current()
+        controller?.view.addSubview(wkWebView)
         let resourcePath = Bundle.main.bundlePath
         let pathURL = URL.init(fileURLWithPath: resourcePath)
         let html = Bundle.main.path(forResource: "firmata", ofType: "html")
@@ -51,31 +60,32 @@ public class BuggyEngine: NSObject {
     
     func registerWebViewBridge()->Promise<String>{
         bridge = WKWebViewJavascriptBridge(webView: wkWebView)
-        bridge?.register(handlerName: "bleConnect") { (paramters, callback) in
-            _ = self.initCommunicator().done{_ in
+        bridge?.register(handlerName:FIRMATA_CONNECT) { (paramters, callback) in
+           _ =  self.initCommunicator().done{_ in
                 callback?("success")
+            }.catch{ error in
+                if let err = error as? BuggyError{
+                    self.catchManagerError(error:err)
+                }
             }
         }
         
-        bridge?.register(handlerName: "sendMsgPromise") { (paramters, callback) in
+        bridge?.register(handlerName:FIRMATA_SENDMEG) { (paramters, callback) in
             let data = paramters!["data"] as! NSDictionary
             self.sendData(data: data.object(forKey:"data")! as! Array<UInt8>)
             callback?("success")
         }
         
-        bridge?.register(handlerName: "connectTimeOut") { (paramters, callback) in
-            print("scratch response","连接超时")
-            self.delegate?.buggyEngineState?(state:.timeout)
+        bridge?.register(handlerName:FIRMATA_TIMEOUT) { (paramters, callback) in
+            self.delegate?.buggyEngineState?(state:.firmataTimeOut)
         }
         
-        bridge?.register(handlerName: "disconnect") { (paramters, callback) in
-            print("scratch response","连接断开")
-            self.delegate?.buggyEngineState?(state:.disconnect)
+        bridge?.register(handlerName:FIRMATA_DISCONNECT) { (paramters, callback) in
+            self.delegate?.buggyEngineState?(state:.firmatabreak)
         }
         
-        bridge?.register(handlerName: "connectReady") { (paramters, callback) in
-            print("scratch response","连接成功")
-            self.delegate?.buggyEngineState?(state:.connectsuccess)
+        bridge?.register(handlerName:FIRMATA_CONNECTREADY) { (paramters, callback) in
+            self.delegate?.buggyEngineState?(state:.firmatasuccess)
         }
         return Promise{seal in seal.fulfill("OK")}
     }
@@ -99,10 +109,21 @@ public class BuggyEngine: NSObject {
                 return self.resetBuggy()
             }.then{_ in
                 return Promise{seal in seal.fulfill("OK")}
-        }
+            }
     }
+    
+    func connectSuccess()->Promise<String>{
+        cancel(timeOutTask)
+        delegate?.buggyEngineState?(state:.connectsuccess)
+        return Promise{seal in seal.fulfill("OK")}
+    }
+    
+    func stopScan(){
+        manager.stopScan()
+        self.delegate?.buggyEngineState?(state:.connectTimeOut)
+    }
+    
     public func resetBuggyAndUpload(data:NSData)->Promise<String>{
-        manager.communucationType = .upload
         return self.uploadHex(data:data as Data)
     }
     
@@ -131,11 +152,23 @@ public class BuggyEngine: NSObject {
     }
     
     public func sendData(data:[UInt8]){
-        self.manager.managerWriteValue(self.manager.connectionIO!, msg: data)
+        if let connectionIO = self.manager.connectionIO{
+            self.manager.managerWriteValue(connectionIO, msg: data)
+        }
     }
     
     func firmataReady()->Promise<String>{
         return after(seconds:0.020).then{return Promise{seal in seal.fulfill("OK")}}
+    }
+    
+    func catchManagerError(error:BuggyError){
+        cancel(timeOutTask)
+        switch error.code {
+        case .powerOff:
+            presentPowerOFF = true
+            self.delegate?.buggyEngineState?(state:.powerOff)
+        default:break
+        }
     }
 }
 
@@ -143,14 +176,12 @@ extension BuggyEngine:BuggyManagerDelegate{
     
     public func firmataReceviceData(inputData: [UInt8]) {
         delegate?.firmataReceviceData!(inputData:inputData)
-        bridge?.call(handlerName: "handleNotification", data:["data":inputData], callback: nil)
+        bridge?.call(handlerName:FIRMATA_NOTIFICATION, data:["data":inputData], callback: nil)
     }
-}
-
-
-extension BuggyEngine:WKNavigationDelegate{
     
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("加载完成")
+    public func managerState(state: CBCentralManagerState) {
+        
     }
+    
+    
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Harvey He. All rights reserved.
 //
 import Foundation
+import CoreBluetooth
 @objc public protocol BuggyManagerDelegate : NSObjectProtocol {
     
     // 处理接收正常
@@ -13,6 +14,7 @@ import Foundation
     @objc optional func hexUploadProgess(progess:Int)
     @objc optional func deviceBetteryLevel(data:Data)
     @objc optional func deviceLineBreak()
+    @objc optional func managerState(state:CBCentralManagerState)
     
 }
 

@@ -185,12 +185,15 @@ extension BuggyManager:BluetoothDelegate{
     
     func didReadValueForCharacteristic(_ characteristic: CBCharacteristic) {
         let data = characteristic.value!
-        print("didReadValueForCharacteristic",data)
         cancel(timeOutTask);
         let array = data.withUnsafeBytes {
             [UInt8](UnsafeBufferPointer(start: $0, count: data.count))
         }
         parseReceived(inputData:array)
+    }
+    
+    func didUpdateState(_ state: CBCentralManagerState) {
+        delegate?.managerState?(state:state)
     }
 }
 
@@ -204,6 +207,7 @@ extension BuggyManager{
     }
     
     func setUploadBaudrate() -> Promise<String>  {
+         communucationType = .upload
         if let connectionBau = connectionBaudrate {
             managerWriteValue(connectionBau, msg:Baud115200)
         }
@@ -211,6 +215,7 @@ extension BuggyManager{
     }
     
     func  setCommunicatorBaudrate() -> Promise<String>  {
+        communucationType = .control
         if let connectionBau = connectionBaudrate {
             managerWriteValue(connectionBau, msg: Baud115200)
         }
