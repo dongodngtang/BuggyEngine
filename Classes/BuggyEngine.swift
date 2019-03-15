@@ -167,7 +167,8 @@ public class BuggyEngine: NSObject {
         case .powerOff:
             presentPowerOFF = true
             self.delegate?.buggyEngineState?(state:.powerOff)
-        default:break
+        case .timeOut:
+            self.stopScan()
         }
     }
 }
