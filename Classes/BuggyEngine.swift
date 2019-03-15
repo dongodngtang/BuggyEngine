@@ -143,7 +143,7 @@ public class BuggyEngine: NSObject {
     }
     
     func uploadHex(data:Data)->Promise<String>{
-        delegate?buggyEngineState?(state:.uploadHex)
+        delegate?.buggyEngineState?(state:.uploadHex)
         return self.resetBuggy().then { _ in
             return self.manager.enterProgramming()
             }.then { _ in
