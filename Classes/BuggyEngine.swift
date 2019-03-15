@@ -19,6 +19,7 @@ import CoreBluetooth
     case firmatabreak
     case powerOff
     case powerOn
+    case uploadHex
 }
 
 public class BuggyEngine: NSObject {
@@ -78,13 +79,6 @@ public class BuggyEngine: NSObject {
         
         bridge?.register(handlerName:FIRMATA_TIMEOUT) { (paramters, callback) in
             self.delegate?.buggyEngineState?(state:.firmataTimeOut)
-            let path = Bundle.main.path(forResource:"AppBuggy", ofType:"bin")
-            let data = NSData(contentsOfFile:path!)
-            self.uploadHex(data:data! as Data).done{_ in
-                print("上传完成")
-                }.catch{error in
-                        print(error)
-                }
         }
         
         bridge?.register(handlerName:FIRMATA_DISCONNECT) { (paramters, callback) in
@@ -149,6 +143,7 @@ public class BuggyEngine: NSObject {
     }
     
     func uploadHex(data:Data)->Promise<String>{
+        delegate?buggyEngineState?(state:.uploadHex)
         return self.resetBuggy().then { _ in
             return self.manager.enterProgramming()
             }.then { _ in
