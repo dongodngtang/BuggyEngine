@@ -32,6 +32,16 @@ class ViewController: UIViewController {
 extension ViewController:BuggyEngineDelegate{
     
     func buggyEngineState(state: BuggyState) {
+        switch state {
+        case .connectsuccess:
+            print("连接成功")
+        case .firmatasuccess:
+            print("初始化成功")
+        case .firmataTimeOut:
+            print("初始化超市")
+        default:
+            break
+        }
         print("buggyEngineState",state == .connectTimeOut)
     }
     

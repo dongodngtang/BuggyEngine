@@ -78,6 +78,13 @@ public class BuggyEngine: NSObject {
         
         bridge?.register(handlerName:FIRMATA_TIMEOUT) { (paramters, callback) in
             self.delegate?.buggyEngineState?(state:.firmataTimeOut)
+            let path = Bundle.main.path(forResource:"AppBuggy", ofType:"bin")
+            let data = NSData(contentsOfFile:path!)
+            self.uploadHex(data:data! as Data).done{_ in
+                print("上传完成")
+                }.catch{error in
+                        print(error)
+                }
         }
         
         bridge?.register(handlerName:FIRMATA_DISCONNECT) { (paramters, callback) in
@@ -106,10 +113,12 @@ public class BuggyEngine: NSObject {
             }.then{_ in
                 return self.manager.connectDevice()
             }.then{_ in
-                return self.resetBuggy()
+                return self.manager.setCommunicatorBaudrate()
+            }.then{_ in
+                return self.connectSuccess()
             }.then{_ in
                 return Promise{seal in seal.fulfill("OK")}
-            }
+        }
     }
     
     func connectSuccess()->Promise<String>{
@@ -148,7 +157,7 @@ public class BuggyEngine: NSObject {
                 return self.manager.exitProgramming()
             }.then{ _ in
                 return self.manager.setCommunicatorBaudrate()
-        }
+            }
     }
     
     public func sendData(data:[UInt8]){
@@ -169,6 +178,7 @@ public class BuggyEngine: NSObject {
             self.delegate?.buggyEngineState?(state:.powerOff)
         case .timeOut:
             self.stopScan()
+        default:break
         }
     }
 }
@@ -184,5 +194,7 @@ extension BuggyEngine:BuggyManagerDelegate{
         
     }
     
-    
+    public func hexUploadProgess(progess: Int) {
+        delegate?.hexUploadProgess?(progess: progess)
+    }
 }

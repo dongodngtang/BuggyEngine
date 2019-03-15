@@ -255,7 +255,7 @@ extension BuggyManager{
     }
     
     func enterProgramming ()->Promise<[UInt8]>{
-        timeOutTask = delay(2){self.response.reject(BuggyError(code:.timeOut))}
+        timeOutTask = delay(2){self.response.reject(BuggyError(code:.uploadFailure))}
         if let connectIO = connectionIO {
             managerWriteValue(connectIO,msg:[STK_ENTER_PROGMODE, CRC_EOP]);
         }
@@ -263,7 +263,7 @@ extension BuggyManager{
     }
     
     func exitProgramming ()->Promise<[UInt8]>{
-        timeOutTask = delay(2){self.response.reject(BuggyError(code:.timeOut))}
+        timeOutTask = delay(2){self.response.reject(BuggyError(code:.uploadFailure))}
         if let connectIO = connectionIO {
             managerWriteValue(connectIO,msg:[STK_LEAVE_PROGMODE, CRC_EOP]);
         }
@@ -326,13 +326,13 @@ extension BuggyManager{
         let cmd:[UInt8] = [STK_LOAD_ADDRESS,addr_low,addr_high,CRC_EOP];
         managerWriteValue(connectionIO!, msg: cmd)
         updateProgess(pageaddr:pageaddr, hexData: hexData)
-        timeOutTask = delay(2){self.response.reject(BuggyError(code:.timeOut))}
+        timeOutTask = delay(2){self.response.reject(BuggyError(code:.uploadFailure))}
         return getBuggyResponse
     }
     
     func updateProgess(pageaddr:Int,hexData:Data){
-        // let progess = Int((Float(pageaddr) / Float(hexData.count))*100)
-       
+         let progess = Int((Float(pageaddr) / Float(hexData.count))*100)
+        delegate?.hexUploadProgess?(progess:progess)
     }
     
     func loadPage(writeBytes:[UInt8])->Promise<[UInt8]> {
@@ -342,7 +342,7 @@ extension BuggyManager{
         cmd = cmd + writeBytes;
         cmd.append(CRC_EOP)
         managerWriteValue(connectionIO!, msg: cmd)
-        timeOutTask = delay(2){self.response.reject(BuggyError(code:.timeOut))}
+        timeOutTask = delay(2){self.response.reject(BuggyError(code:.uploadFailure))}
         return getBuggyResponse;
     }
 }

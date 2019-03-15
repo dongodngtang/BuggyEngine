@@ -20,6 +20,7 @@ enum CommunucationType {
 enum ErrorCode {
     case powerOff
     case timeOut
+    case uploadFailure
 }
 
 public struct BuggyError: Error {
