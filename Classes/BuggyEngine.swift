@@ -65,6 +65,7 @@ public class BuggyEngine: NSObject {
            _ =  self.initCommunicator().done{_ in
                 callback?("success")
             }.catch{ error in
+                callback?("failure")
                 if let err = error as? BuggyError{
                     self.catchManagerError(error:err)
                 }

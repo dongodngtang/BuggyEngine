@@ -60,7 +60,10 @@ class BuggyManager: NSObject {
     func startScan() ->Promise<String>{
         manager.delegate = self
         manager.startScanPeripheral()
-        timeOutTask = delay(3){self.device.reject(BuggyError(code:.timeOut))}
+        //通过外层判断扫描超时
+//        timeOutTask = delay(10){
+//            self.device.reject(BuggyError(code:.timeOut))
+//        }
         return Promise{seal in seal.fulfill("OK")}
     }
     
@@ -142,7 +145,7 @@ extension BuggyManager:BluetoothDelegate{
     func didDiscoverPeripheral(_ peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber){
         if let name = peripheral.name {
             if (name.contains(buggyName) && labs(RSSI.intValue)<filterRSSI){
-                cancel(timeOutTask);
+               // cancel(timeOutTask);
                 device.fulfill(peripheral)
             }
         }

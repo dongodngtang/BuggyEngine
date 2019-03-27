@@ -11,15 +11,22 @@ import PromiseKit
 import BuggyEngine
 class ViewController: UIViewController {
 
+    let buggyEngine = BuggyEngine()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blue
-        let buggyEngine = BuggyEngine()
         buggyEngine.delegate = self
         buggyEngine.initBuggy()
-        after(seconds: 1).done { _ in
-            buggyEngine.connectBuggy()
-        }
+        
+        
+        let button = UIButton(frame:CGRect(x:100, y: 100, width: 100, height: 30))
+        button.backgroundColor = .red
+        button.addTarget(self, action: #selector(click), for: .touchUpInside)
+        view.addSubview(button)
+    }
+    
+    @objc func click(){
+         buggyEngine.connectBuggy()
     }
 
 
