@@ -59,4 +59,5 @@ let FIRMATA_TIMEOUT = "connectTimeOut"
 let FIRMATA_DISCONNECT = "disconnect"
 let FIRMATA_CONNECTREADY = "connectReady"
 let FIRMATA_NOTIFICATION = "handleNotification"
+let FIRMATA_VERSIONEXPIRED = "versionExpired"
 

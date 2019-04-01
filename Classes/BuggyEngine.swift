@@ -20,6 +20,7 @@ import CoreBluetooth
     case powerOff
     case powerOn
     case uploadHex
+    case firmataExpired
 }
 
 public class BuggyEngine: NSObject {
@@ -89,6 +90,9 @@ public class BuggyEngine: NSObject {
         bridge?.register(handlerName:FIRMATA_CONNECTREADY) { (paramters, callback) in
             self.delegate?.buggyEngineState?(state:.firmatasuccess)
         }
+        bridge?.register(handlerName:FIRMATA_VERSIONEXPIRED, handler: { (paramters, callback) in
+            self.delegate?.buggyEngineState?(state:.firmataExpired)
+        })
         return Promise{seal in seal.fulfill("OK")}
     }
     
@@ -192,5 +196,9 @@ extension BuggyEngine:BuggyManagerDelegate{
     
     public func hexUploadProgess(progess: Int) {
         delegate?.hexUploadProgess?(progess: progess)
+    }
+    
+    public func powerWarning() {
+        delegate?.powerWarning?()
     }
 }

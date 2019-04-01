@@ -17,4 +17,6 @@ import CoreBluetooth
     @objc optional func hexUploadProgess(progess:Int)
     
     @objc optional func managerState(state:CBCentralManagerState)
+    
+    @objc optional func powerWarning()
 }

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BuggyEngine'
-  s.version          = '0.2.5'
+  s.version          = '0.2.6'
   s.summary          = 'BuggyEngine for IBB'
 
 # This description is used to generate tags and improve search results.

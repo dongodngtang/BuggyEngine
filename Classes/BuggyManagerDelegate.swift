@@ -15,6 +15,7 @@ import CoreBluetooth
     @objc optional func deviceBetteryLevel(data:Data)
     @objc optional func deviceLineBreak()
     @objc optional func managerState(state:CBCentralManagerState)
+    @objc optional func powerWarning()
     
 }
 
