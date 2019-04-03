@@ -45,6 +45,20 @@ class BuggyManager: NSObject {
         }
     }
     
+    func disConnected()->Promise<String>{
+        cancel(timeOutTask);
+        connectionIO = nil
+        connectionBaudrate = nil
+        betteryCharacteristic = nil
+       (getDevice, device) = Promise<CBPeripheral>.pending()
+       (getService, servie) = Promise<String>.pending()
+       (getCharacteritic, characteritic) = Promise<String>.pending()
+       (getBuggyResponse,response) = Promise<[UInt8]>.pending()
+        manager.disconnectPeripheral();
+        manager.stopScanPeripheral();
+        return Promise{seal in seal.fulfill("OK")}
+    }
+    
     func connectDevice()->Promise<String>{
         return self.getDevice.then{peripheral in
             return self.connectPeripheral(peripheral)

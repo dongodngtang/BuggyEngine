@@ -30,7 +30,12 @@ class ViewController: UIViewController {
         label?.font = UIFont.systemFont(ofSize: 14)
         view.addSubview(label!)
         
+         NotificationCenter.default.addObserver(self, selector: #selector(deviceDiconnected), name: nil, object: BluetoothManager.getInstance())
         
+    }
+    
+    @objc func deviceDiconnected(){
+        buggyEngine.disConnected()
     }
     
     @objc func click(){

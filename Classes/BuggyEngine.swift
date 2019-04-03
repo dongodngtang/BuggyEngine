@@ -41,6 +41,11 @@ public class BuggyEngine: NSObject {
         }
     }
     
+    public func disConnected(){
+        bridge?.call(handlerName: "deviceDisConnect", data:nil, callback: nil)
+       _ = manager.disConnected()
+    }
+    
     public func connectBuggy(){
         bridge?.call(handlerName: "deviceConnect", data:nil, callback: nil)
         timeOutTask = delay(10){self.stopScan()}
@@ -126,7 +131,7 @@ public class BuggyEngine: NSObject {
         return Promise{seal in seal.fulfill("OK")}
     }
     
-    func stopScan(){
+    public func stopScan(){
         manager.stopScan()
         self.delegate?.buggyEngineState?(state:.connectTimeOut)
     }
