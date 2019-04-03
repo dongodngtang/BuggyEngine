@@ -52,8 +52,8 @@ public class BuggyEngine: NSObject {
     }
     
     func loadFirmataResource()->Promise<String>{
-        let controller = UIViewController.current()
-        controller?.view.addSubview(wkWebView)
+        let controller = UIApplication.shared.keyWindow
+        controller?.addSubview(wkWebView)
         let resourcePath = Bundle.main.bundlePath
         let pathURL = URL.init(fileURLWithPath: resourcePath)
         let html = Bundle.main.path(forResource: "firmata", ofType: "html")
@@ -69,8 +69,10 @@ public class BuggyEngine: NSObject {
         bridge = WKWebViewJavascriptBridge(webView: wkWebView)
         bridge?.register(handlerName:FIRMATA_CONNECT) { (paramters, callback) in
            _ =  self.initCommunicator().done{_ in
+                print("--------------------123")
                 callback?("success")
             }.catch{ error in
+                print("--------------------456")
                 callback?("failure")
                 if let err = error as? BuggyError{
                     self.catchManagerError(error:err)

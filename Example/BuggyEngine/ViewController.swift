@@ -15,31 +15,41 @@ class ViewController: UIViewController {
     var label:UILabel?
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.blue
-        buggyEngine.delegate = self
-        buggyEngine.initBuggy()
+        view.backgroundColor = UIColor.white
+//        buggyEngine.delegate = self
+//        buggyEngine.initBuggy()
         
-        
-        let button = UIButton(frame:CGRect(x:100, y: 100, width: 100, height: 30))
-        button.backgroundColor = .red
-        button.addTarget(self, action: #selector(click), for: .touchUpInside)
-        view.addSubview(button)
-        
-        
-        label = UILabel(frame:CGRect(x:100, y: 100, width: 100, height: 30))
+        label = UILabel(frame:CGRect(x:(view.frame.width-100)/2, y: 100, width: 100, height: 30))
         label?.font = UIFont.systemFont(ofSize: 14)
         view.addSubview(label!)
+        
+        let button = UIButton(frame:CGRect(x:(view.frame.width-100)/2, y: (view.frame.height-100)/2, width: 100, height: 100))
+        button.setTitle("蓝牙连接", for: .normal)
+        button.setTitleColor(UIColor.black, for:.normal)
+        button.addTarget(self, action: #selector(click), for: .touchUpInside)
+        view.addSubview(button)
         
          NotificationCenter.default.addObserver(self, selector: #selector(deviceDiconnected), name: nil, object: BluetoothManager.getInstance())
         
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceDiconnected), name: nil, object: BluetoothManager.getInstance())
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func deviceDiconnected(){
-        buggyEngine.disConnected()
+        Communicator.getInstance().disConnectDevice()
+       // buggyEngine.disConnected()
     }
     
     @objc func click(){
-         buggyEngine.connectBuggy()
+        self.navigationController?.pushViewController(TestViewController(), animated: true)
+        // buggyEngine.connectBuggy()
     }
 
     func uploadAndResetBuggy(){
@@ -67,7 +77,6 @@ extension ViewController:BuggyEngineDelegate{
         case .firmatasuccess:
             print("初始化成功")
             label?.text = "初始化成功"
-            buggyEngine.sendData(data:[0xF0,0x79,0xF7])
         case .firmataTimeOut:
             print("初始化超时")
             label?.text = "初始化超时"
@@ -78,7 +87,6 @@ extension ViewController:BuggyEngineDelegate{
         default:
             break
         }
-        print("buggyEngineState",state == .connectTimeOut)
     }
     
     func firmataReceviceData(inputData:[UInt8]){
