@@ -20,6 +20,8 @@ import CoreBluetooth
     case powerOff
     case powerOn
     case uploadHex
+    case lineBreak
+    case callBuggyTimeout
     case firmataExpired
 }
 
@@ -68,15 +70,13 @@ public class BuggyEngine: NSObject {
     func registerWebViewBridge()->Promise<String>{
         bridge = WKWebViewJavascriptBridge(webView: wkWebView)
         bridge?.register(handlerName:FIRMATA_CONNECT) { (paramters, callback) in
-           _ =  self.initCommunicator().done{_ in
-                print("--------------------123")
+            _ =  self.initCommunicator().done{_ in
                 callback?("success")
-            }.catch{ error in
-                print("--------------------456")
-                callback?("failure")
-                if let err = error as? BuggyError{
-                    self.catchManagerError(error:err)
-                }
+                }.catch{ error in
+                    callback?("failure")
+                    if let err = error as? BuggyError{
+                        self.catchManagerError(error:err)
+                    }
             }
         }
         
@@ -121,9 +121,25 @@ public class BuggyEngine: NSObject {
             }.then{_ in
                 return self.manager.setCommunicatorBaudrate()
             }.then{_ in
+                return self.checkBuggyState()
+            }.then{_ in
                 return self.connectSuccess()
             }.then{_ in
                 return Promise{seal in seal.fulfill("OK")}
+        }
+    }
+    
+    func checkBuggyState()->Promise<String>{
+        return Promise {seal in
+           _ = self.manager.checkBuggyState().done { (inputData) in
+                if(inputData == [0xF0,0x0D,1,0,0xF7]){
+                    return seal.fulfill("OK")
+                }else{
+                    return seal.reject(BuggyError(code:.lineBreak))
+                }
+            }.catch({ (error) in
+                 return seal.reject(BuggyError(code:.callCmdTimeOut))
+            })
         }
     }
     
@@ -151,7 +167,7 @@ public class BuggyEngine: NSObject {
                 return self.manager.keepSync()
             }.then{ _ in
                 return self.manager.setDevice()
-        }
+            }
     }
     
     func uploadHex(data:Data)->Promise<String>{
@@ -185,6 +201,10 @@ public class BuggyEngine: NSObject {
             self.delegate?.buggyEngineState?(state:.powerOff)
         case .timeOut:
             self.stopScan()
+        case .lineBreak:
+            self.delegate?.buggyEngineState?(state:.lineBreak)
+        case .callCmdTimeOut:
+            self.delegate?.buggyEngineState?(state:.callBuggyTimeout)
         default:break
         }
     }

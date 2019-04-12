@@ -245,6 +245,17 @@ extension BuggyManager{
         return after(seconds:0.20).then{return Promise{seal in seal.fulfill("OK")}}
     }
     
+    func checkBuggyState() -> Promise<[UInt8]> {
+        timeOutTask = delay(2){
+            self.response.reject(BuggyError(code:.lineBreak))
+            (self.getBuggyResponse,self.response) = Promise<[UInt8]>.pending()
+        }
+        if let connectIO =  self.connectionIO {
+            self.managerWriteValue(connectIO,msg:[0xF0,0x0D,1,0xF7])
+        }
+        return getBuggyResponse
+    }
+    
     func getSync()->Promise<[UInt8]> {
         timeOutTask = delay(2){self.response.reject(BuggyError(code:.timeOut))}
         if let connectIO =  connectionIO {

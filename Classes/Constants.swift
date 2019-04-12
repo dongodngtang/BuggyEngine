@@ -21,6 +21,8 @@ enum ErrorCode {
     case powerOff
     case timeOut
     case uploadFailure
+    case lineBreak
+    case callCmdTimeOut
 }
 
 public struct BuggyError: Error {
