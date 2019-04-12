@@ -190,7 +190,7 @@ public class BuggyEngine: NSObject {
     }
     
     func firmataReady()->Promise<String>{
-        return after(seconds:0.020).then{return Promise{seal in seal.fulfill("OK")}}
+        return after(seconds:0.20).then{return self.checkBuggyState()}
     }
     
     func catchManagerError(error:BuggyError){

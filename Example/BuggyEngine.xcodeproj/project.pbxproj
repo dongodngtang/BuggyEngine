@@ -14,7 +14,7 @@
 		582E80D7224B703C0094693D /* firmata.html in Resources */ = {isa = PBXBuildFile; fileRef = 582E80D4224B703C0094693D /* firmata.html */; };
 		582E80F8224B7E930094693D /* lib.js in Resources */ = {isa = PBXBuildFile; fileRef = 582E80F6224B7E930094693D /* lib.js */; };
 		582E80F9224B7E930094693D /* firmata.js in Resources */ = {isa = PBXBuildFile; fileRef = 582E80F7224B7E930094693D /* firmata.js */; };
-		58654CCF226038FD00478D70 /* AppBuggy.bin in Resources */ = {isa = PBXBuildFile; fileRef = 58654CCE226038FD00478D70 /* AppBuggy.bin */; };
+		58654CD32260903E00478D70 /* AppBuggy.bin in Resources */ = {isa = PBXBuildFile; fileRef = 58654CD22260903E00478D70 /* AppBuggy.bin */; };
 		588D4FD42254941B00448F1C /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588D4FD32254941B00448F1C /* Communicator.swift */; };
 		588D4FE92254967A00448F1C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588D4FE82254967A00448F1C /* TestViewController.swift */; };
 		588D4FEB22549B8A00448F1C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588D4FEA22549B8A00448F1C /* BaseViewController.swift */; };
@@ -45,7 +45,7 @@
 		582E80D4224B703C0094693D /* firmata.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = firmata.html; sourceTree = "<group>"; };
 		582E80F6224B7E930094693D /* lib.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lib.js; sourceTree = "<group>"; };
 		582E80F7224B7E930094693D /* firmata.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = firmata.js; sourceTree = "<group>"; };
-		58654CCE226038FD00478D70 /* AppBuggy.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = AppBuggy.bin; sourceTree = "<group>"; };
+		58654CD22260903E00478D70 /* AppBuggy.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = AppBuggy.bin; sourceTree = "<group>"; };
 		588D4FD32254941B00448F1C /* Communicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		588D4FE82254967A00448F1C /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		588D4FEA22549B8A00448F1C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				581F697721E5CC2500DBA269 /* firmataCorePlusIBB.bin */,
-				58654CCE226038FD00478D70 /* AppBuggy.bin */,
+				58654CD22260903E00478D70 /* AppBuggy.bin */,
 				582E80D4224B703C0094693D /* firmata.html */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -278,7 +278,7 @@
 			files = (
 				582E80F9224B7E930094693D /* firmata.js in Resources */,
 				581F697821E5CC2500DBA269 /* firmataCorePlusIBB.bin in Resources */,
-				58654CCF226038FD00478D70 /* AppBuggy.bin in Resources */,
+				58654CD32260903E00478D70 /* AppBuggy.bin in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,

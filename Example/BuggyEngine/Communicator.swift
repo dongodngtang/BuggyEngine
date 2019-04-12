@@ -163,9 +163,9 @@ class Communicator: NSObject{
     func uploadAndResetBuggy(){
         let path = Bundle.main.path(forResource:"AppBuggy", ofType:"bin")
         let data = NSData(contentsOfFile:path!)
-        
         _ = engine?.resetBuggyAndUpload(data:data!).done({ (result) in
             print("上传完成")
+             _ = self.engine?.connectBuggy()
         }).catch({ (error) in
             print("上传出错",error)
         })
@@ -203,8 +203,7 @@ extension Communicator:BuggyEngineDelegate{
             print("线断开")
         case .callBuggyTimeout:
             print("控制超时")
-            after(seconds: 2).done({self.uploadAndResetBuggy()})
-            
+            uploadAndResetBuggy()
         default:
             break
         }
