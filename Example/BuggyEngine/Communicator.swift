@@ -200,6 +200,8 @@ extension Communicator:BuggyEngineDelegate{
             print("初始化成功")
             delegate?.communicatorState(state:.connected)
         case .lineBreak:
+            let firmataData = ["name":"reset","param":[]] as [String : Any]
+            self.sendCmdData(firmataData: firmataData)
             print("线断开")
         case .callBuggyTimeout:
             print("控制超时")
