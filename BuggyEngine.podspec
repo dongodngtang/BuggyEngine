@@ -41,5 +41,5 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
     s.dependency 'PromiseKit', '~> 6.0'
-    s.dependency 'WKWebViewJavascriptBridge', '~> 1.2.0'
+    s.dependency 'WKWebViewJavascriptBridge', '1.2.0'
 end
